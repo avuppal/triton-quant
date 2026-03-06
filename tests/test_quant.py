@@ -11,10 +11,13 @@ Tests cover:
 - memory footprint (packed is 4× smaller than float16)
 """
 
-import pytest
-import torch
 import sys
 import os
+
+import pytest
+
+# auto-skip the entire module if torch is not installed
+torch = pytest.importorskip("torch")
 
 # allow running from repo root without installing the package
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
